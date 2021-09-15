@@ -9,7 +9,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 $servidor = "eu-cdbr-west-01.cleardb.com/"; $usuario = "b8ec321a01cc9e"; $contrasenia = "8689f43e"; $nombreBaseDatos = "heroku_f47577e5bf3f176";
 $conexionBD = new mysqli($servidor, $usuario, $contrasenia, $nombreBaseDatos);
 
-
+/*
 // Consulta datos y recepciona una clave para consultar dichos datos con dicha clave
 if (isset($_GET["consultar"])){
     $sqlEmpleaados = mysqli_query($conexionBD,"SELECT * FROM usuarios WHERE id=".$_GET["consultar"]);
@@ -150,8 +150,8 @@ if (isset($_GET["count"])) {
       
 }
 // Consulta todos los registros de la tabla empleados
-/*if (!isset($_GET["count"]) && !isset($_GET["ordenarAscId"]) && !isset($_GET["ordenarDescId"]) && !isset($_GET["ordenarAscNombre"]) && !isset($_GET["ordenarDescNombre"]) && !isset($_GET["ordenarAscCorreo"]) && !isset($_GET["ordenarDescCorreo"]) && !isset($_GET["limitFirstParam"]) && !isset($_GET["limitSecondParam"] )){
-    $sqlEmpleaados = mysqli_query($conexionBD,"SELECT * FROM empleados ");
+    if (!isset($_GET["count"]) && !isset($_GET["ordenarAscId"]) && !isset($_GET["ordenarDescId"]) && !isset($_GET["ordenarAscNombre"]) && !isset($_GET["ordenarDescNombre"]) && !isset($_GET["ordenarAscCorreo"]) && !isset($_GET["ordenarDescCorreo"]) && !isset($_GET["limitFirstParam"]) && !isset($_GET["limitSecondParam"] )){
+    $sqlEmpleaados = mysqli_query($conexionBD,"SELECT * FROM usuarios ");
     if(mysqli_num_rows($sqlEmpleaados) > 0){
         $empleaados = mysqli_fetch_all($sqlEmpleaados,MYSQLI_ASSOC);
         echo json_encode($empleaados);
@@ -159,6 +159,13 @@ if (isset($_GET["count"])) {
 else{ echo json_encode([["success"=>0]]); }
 
 }*/
+
+$sqlUsuarios = mysqli_query($conexionBD,"SELECT * FROM empleados ");
+if(mysqli_num_rows($sqlUsuarios) > 0){
+    $usuarios = mysqli_fetch_all($sqlEmpleaados,MYSQLI_ASSOC);
+    echo json_encode($usuarios);
+}
+else{ echo json_encode([["success"=>0]]); }
 
 
 ?>
