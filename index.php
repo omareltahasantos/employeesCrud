@@ -6,7 +6,7 @@ header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 // Conecta a la base de datos  con usuario, contraseña y nombre de la BD
-$servidor = "eu-cdbr-west-01.cleardb.com/"; $usuario = "b8ec321a01cc9e"; $contrasenia = "8689f43e"; $nombreBaseDatos = "heroku_f47577e5bf3f176";
+$servidor = "eu-cdbr-west-01.cleardb.com"; $usuario = "b8ec321a01cc9e"; $contrasenia = "8689f43e"; $nombreBaseDatos = "heroku_f47577e5bf3f176";
 $conexionBD = new mysqli($servidor, $usuario, $contrasenia, $nombreBaseDatos);
 
 /*
@@ -162,10 +162,11 @@ else{ echo json_encode([["success"=>0]]); }
 
 $sqlUsuarios = mysqli_query($conexionBD,"SELECT * FROM empleados ");
 if(mysqli_num_rows($sqlUsuarios) > 0){
-    $usuarios = mysqli_fetch_all($sqlEmpleaados,MYSQLI_ASSOC);
+    $usuarios = mysqli_fetch_all($sqlUsuarios,MYSQLI_ASSOC);
     echo json_encode($usuarios);
 }
 else{ echo json_encode([["success"=>0]]); }
+
 
 
 ?>
