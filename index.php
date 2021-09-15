@@ -9,7 +9,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 $servidor = "eu-cdbr-west-01.cleardb.com"; $usuario = "b8ec321a01cc9e"; $contrasenia = "8689f43e"; $nombreBaseDatos = "heroku_f47577e5bf3f176";
 $conexionBD = new mysqli($servidor, $usuario, $contrasenia, $nombreBaseDatos);
 
-/*
+
 // Consulta datos y recepciona una clave para consultar dichos datos con dicha clave
 if (isset($_GET["consultar"])){
     $sqlEmpleaados = mysqli_query($conexionBD,"SELECT * FROM usuarios WHERE id=".$_GET["consultar"]);
@@ -158,7 +158,7 @@ if (isset($_GET["count"])) {
     }
 else{ echo json_encode([["success"=>0]]); }
 
-}*/
+}
 
 $sqlUsuarios = mysqli_query($conexionBD,"SELECT * FROM empleados ");
 if(mysqli_num_rows($sqlUsuarios) > 0){
