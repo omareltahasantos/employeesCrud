@@ -159,14 +159,14 @@ if (isset($_GET["count"])) {
 else{ echo json_encode([["success"=>0]]); }
 
 }
-
+/*
 $sqlUsuarios = mysqli_query($conexionBD,"SELECT * FROM empleados ");
 if(mysqli_num_rows($sqlUsuarios) > 0){
     $usuarios = mysqli_fetch_all($sqlUsuarios,MYSQLI_ASSOC);
     echo json_encode($usuarios);
 }
 else{ echo json_encode([["success"=>0]]); }
-
+*/
 
 
 ?>
